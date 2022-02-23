@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/addCV', function () {
+    return view('addCV');
+});
+Route::post('/addCV',[BasicController::class,'saveBasic']);
+Route::get('/',[BasicController::class,'show']);
