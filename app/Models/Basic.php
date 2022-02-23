@@ -17,4 +17,8 @@ class Basic extends Authenticatable
     {
         return $this->hasMany(Education::class);
     }
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Basic;
 use App\Models\Education;
+use App\Models\Job;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class BasicController extends Controller
 {
     protected $basic=[];
     protected $education=[];
+    protected $job=[];
     public function saveBasic(Request $request)
     {
         $basic = new Basic();
@@ -31,7 +33,17 @@ class BasicController extends Controller
         $education->studyfild =$request->studyfild;
         $education->level =$request->level;
         $education->status =$request->status;
+        $education->created_at = Carbon::now();
         $education->save();
+
+        $job = new Job();
+        $job->user_id =$basic->id;
+        $job->title =$request->title;
+        $job->position =$request->position;
+        $job->workload =$request->workload;
+        $job->los=$request->los;
+        $job->created_at = Carbon::now();
+        $job->save();
 
         return redirect('/')->with('message', 'Save to db!');
 
