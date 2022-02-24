@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Addresses;
 use App\Models\Basic;
 use App\Models\Education;
 use App\Models\Job;
@@ -15,6 +16,7 @@ class BasicController extends Controller
     protected $basic=[];
     protected $education=[];
     protected $job=[];
+    protected $addresses=[];
     public function saveBasic(Request $request)
     {
         $basic = new Basic();
@@ -45,6 +47,16 @@ class BasicController extends Controller
         $job->created_at = Carbon::now();
         $job->save();
 
+        $addresses= new Addresses();
+        $addresses->user_id =$basic->id;
+        $addresses->country=$request->country;
+        $addresses->index=$request->index;
+        $addresses->city=$request->city;
+        $addresses->street=$request->street;
+        $addresses->number=$request->number;
+        $addresses->created_at = Carbon::now();
+        $addresses->save();
+
         return redirect('/')->with('message', 'Save to db!');
 
     }
@@ -52,7 +64,8 @@ class BasicController extends Controller
     public function show()
     {
         $data= DB::table('basic_data')->get();
-        return view('/home',compact('data'));
+        $education= DB::table('education')->get();
+        return view('/home',compact('data','education'));
 
     }
 }

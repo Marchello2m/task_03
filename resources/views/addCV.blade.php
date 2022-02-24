@@ -83,7 +83,32 @@
        <div class="job_div">
        </div>
 
-
+       <h1>Addresses</h1>
+       <div class="col-md-6">
+           <div>
+               <label for="country" class="form-label">country</label>
+               <input type="text" class="form-control" name="country">
+           </div>
+           <div>
+               <label for="index" class="form-label">Index</label>
+               <input type="text" class="form-control" name="index">
+           </div>
+           <div>
+               <label for="city" class="form-label">City</label>
+               <input type="text" class="form-control" name="city">
+           </div>
+           <div>
+               <label for="street" class="form-label">Street</label>
+               <input type="text" class="form-control" name="street">
+           </div>
+           <div>
+               <label for="number" class="form-label">Number</label>
+               <input type="text" class="form-control" name="number">
+           </div>
+       </div>
+       Add more addresses: <span class="fa fa-plus addaddreses"></span>
+       <div class="addresses_div">
+       </div>
 
        <div class="col-12">
            <button type="submit" class="btn btn-primary">Submit</button>
@@ -111,6 +136,19 @@
                     'los : <input type="text" class="form-control" name="los">'
                     ;
                 $('.job_div').append(field);
+                i = i+1;
+            })
+        })
+        $(document).ready(function() {
+            let i = 1;
+            $('.addaddresses').on('click', function() {
+                let field = '<br> '+i+' <div>Country:  <input type="text" class="form-control" name="country">  ' +
+                    'Index :  <input type="text" class="form-control" name="index">'+
+                    'City: <input type="text" class="form-control" name="city">' +
+                    'Street : <input type="text" class="form-control" name="street">' +
+                    'Number : <input type="text" class="form-control" name="number">'
+                ;
+                $('.addresses_div').append(field);
                 i = i+1;
             })
         })
