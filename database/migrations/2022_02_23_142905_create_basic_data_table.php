@@ -15,11 +15,12 @@ class CreateBasicDataTable extends Migration
     {
         Schema::create('basic_data', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('surname');
+            $table->string('name')->nullable();
+            $table->string('surname')->nullable();
             $table->integer('phone')->nullable();
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->text('aboutyou')->nullable();
+            $table->longText('image')->nullable();
 
             $table->timestamps();
         });

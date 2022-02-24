@@ -2,9 +2,14 @@
 
 @section('content')
     <div>Preview</div>
-    <p></p>
+
+    <button onclick="history.back()">Go Back</button>
     <div class="container">
-        <div class=" profile_pic">BILDE</div>
+        <div class=" profile_pic">
+            <img class="image"  src="{{url('public/uploads/'.$data->image)}}"
+                 style="width:100%;cursor:pointer" alt="Image" height="100" width="200"
+            >
+        </div>
         <div class="info">
             <h1>{{$data->name}} {{$data->surname}}</h1>
             <h3>{{$job->position}}</h3>
@@ -24,15 +29,14 @@
                 <h3>Employment History</h3>
                 <h6>{{$job->position}}, {{$job->title}}, {{$addresses->city}}</h6>
                 <p>{{$job->workload}}</p>
-                <p>{{$job->los}}</p>
+                <p>Worked for :{{$job->los}} years</p>
             </div>
             <div>
+
                 <h2>Education</h2>
-                <h6>{{$education->faculty}}, {{$education->ename}}, {{$addresses->city}}</h6>
-                <p>no kura lidz kuram</p>
-                <p>{{$education->studyfilds}}</p>
-                <p>{{$education->level}}</p>
-                <p>{{$education->status}}</p>
+                <h6>{{$education->faculty}}, {{$education->ename}}, {{$education->ecity}}</h6>
+                <p>FROM {{$education->from}} to {{$education->to}}</p>
+
             </div>
         </div>
     </div>

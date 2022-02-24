@@ -19,47 +19,56 @@ class BasicController extends Controller
     protected $addresses=[];
     public function saveBasic(Request $request)
     {
-        $basic = new Basic();
+        if ($this->validate($request, ['image' => 'image|mimes:png|max:2048',])) {
 
-        $basic->name = $request->name;
-        $basic->surname = $request->surname;
-        $basic->phone = $request->phone;
-        $basic->email = $request->email;
-        $basic->aboutyou = $request->aboutyou;
-        $basic->created_at = Carbon::now();
-        $basic->save();
+            $basic = new Basic();
+            $basic->name = $request->name;
+            $basic->surname = $request->surname;
+            $basic->phone = $request->phone;
+            $basic->email = $request->email;
+            $basic->aboutyou = $request->aboutyou;
 
-        $education = new Education();
-        $education->user_id =$basic->id;
-        $education->ename =$request->ename;
-        $education->faculty =$request->faculty;
-        $education->studyfild =$request->studyfild;
-        $education->level =$request->level;
-        $education->status =$request->status;
-        $education->created_at = Carbon::now();
-        $education->save();
+            $file = $request->file('image');
+            $filename = $request->name . '.png';
+            $file->move('public/uploads', $filename);
+            $basic->image = $filename;
+            $basic->created_at = Carbon::now();
+            $basic->save();
 
-        $job = new Job();
-        $job->user_id =$basic->id;
-        $job->title =$request->title;
-        $job->position =$request->position;
-        $job->workload =$request->workload;
-        $job->los=$request->los;
-        $job->created_at = Carbon::now();
-        $job->save();
+            $education = new Education();
+            $education->user_id = $basic->id;
+            $education->ename = $request->ename;
+            $education->from = $request->from;
+            $education->to = $request->to;
+            $education->ecity = $request->ecity;
+            $education->faculty = $request->faculty;
+            $education->studyfild = $request->studyfild;
+            $education->level = $request->level;
+            $education->status = $request->status;
+            $education->created_at = Carbon::now();
+            $education->save();
 
-        $addresses= new Addresses();
-        $addresses->user_id =$basic->id;
-        $addresses->country=$request->country;
-        $addresses->index=$request->index;
-        $addresses->city=$request->city;
-        $addresses->street=$request->street;
-        $addresses->number=$request->number;
-        $addresses->created_at = Carbon::now();
-        $addresses->save();
+            $job = new Job();
+            $job->user_id = $basic->id;
+            $job->title = $request->title;
+            $job->position = $request->position;
+            $job->workload = $request->workload;
+            $job->los = $request->los;
+            $job->created_at = Carbon::now();
+            $job->save();
 
-        return redirect('/')->with('message', 'Save to db!');
+            $addresses = new Addresses();
+            $addresses->user_id = $basic->id;
+            $addresses->country = $request->country;
+            $addresses->index = $request->index;
+            $addresses->city = $request->city;
+            $addresses->street = $request->street;
+            $addresses->number = $request->number;
+            $addresses->created_at = Carbon::now();
+            $addresses->save();
 
+            return redirect('/')->with('message', 'Save to db!');
+        }
     }
 
     public function show()

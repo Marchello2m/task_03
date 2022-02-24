@@ -2,11 +2,16 @@
 
 @section('content')
 
+<div>Create your own CV</div>
+<p>Fill all input fields And just submit</p>
+<p></p>
     <div class="container">
-   <form  action="addCV" method="POST">
+   <form  action="addCV" method="POST" enctype="multipart/form-data">
        @csrf
        <h1>About You</h1>
        <div class="col-md-6">
+
+
            <div>
                <label for="name" class="form-label">Name</label>
                <input type="text" class="form-control" name="name">
@@ -28,13 +33,30 @@
                <textarea  name="aboutyou" rows="4" cols="50"> </textarea>
 
            </div>
+           <div>
+               <label for="image" class="form-label">Uploade profile pic</label>
+               <input type="file" name="image" required>
+           </div>
 
        </div>
        <h1>Educational institutions</h1>
        <div class="col-md-6">
            <div>
-               <label for="ename" class="form-label">Name</label>
+               <label for="ename" class="form-label">Educational institutions Name</label>
                <input type="text" class="form-control" name="ename">
+           </div>
+           <div>
+               <label for="from" class="form-label">Year From </label>
+               <input type="number"  name="from">
+           </div>
+
+           <div>
+               <label for="to" class="form-label">To </label>
+               <input type="number"  name="to">
+           </div>
+           <div>
+               <label for="ecity" class="form-label">City </label>
+               <input type="text" class="form-control" name="ecity">
            </div>
            <div>
                <label for="faculty" class="form-label">Faculty</label>
@@ -118,12 +140,14 @@
        <div class="col-12">
            <button type="submit" class="btn btn-primary">Submit</button>
        </div>
-
+       <button onclick="history.back()">Go Back</button>
     <script>
         $(document).ready(function() {
             let i = 1;
             $('.add').on('click', function() {
                 let field = '<br> '+i+' <div>Name:  <input type="text" class="form-control" name="ename">  ' +
+                    'FROM: <input type="date"  name="from">'+
+                    'TO: <input type="date"  name="to">'+
                     'Faculty :  <input type="text" class="form-control" name="faculty">'+
                     'Field of study: <input type="text" class="form-control" name="studyfild">' +
                     'Level of education : <input type="text" class="form-control" name="level">' +
@@ -159,6 +183,4 @@
         })
     </script>
 @endsection
-
-
 

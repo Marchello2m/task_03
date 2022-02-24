@@ -11,6 +11,19 @@ class Education extends Authenticatable
 {
     use HasApiTokens, HasFactory;
 
+    public $fillable = [
+
+        'ename'=>'',
+        'from' => '',
+        'to' => '',
+        'city' => '',
+        'faculty' =>'',
+        'studyfild'=> '',
+        'level' => '',
+        'status' => '',
+
+
+    ];
     protected $table = 'education';
 
     public function basic()

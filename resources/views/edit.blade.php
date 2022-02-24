@@ -2,7 +2,7 @@
 
 @section('content')
     <div>Edit page</div>
-    <p></p>
+    <button onclick="history.back()">Go Back</button>
     <form action="" method="POST" class="text-center">
         @csrf
 
@@ -23,6 +23,13 @@
             <h1>Educational institutions</h1>
             Educational institutions Title
             <input type="text" name="ename" value=" {{$education->ename}}" > <br> <br>
+            Year from
+            <input type="text" name="from" value=" {{$education->from}}" > <br> <br>
+
+            Year TO
+            <input type="text" name="to" value=" {{$education->to}}" > <br> <br>
+           City
+            <input type="text" name="ecity" value=" {{$education->ecity}}" > <br> <br>
             Faculty
             <input type="text" name="faculty" value=" {{$education->faculty}}" > <br> <br>
             Study Field
@@ -56,6 +63,7 @@
             <input type="text" name="number" value=" {{$addresses->number}}" > <br> <br>
             <button type="submit">Update</button>
            <a href="/preview/{{$data->id}}">Preview</a>
+            <button onclick="history.back()">Go Back</button>
         </div>
 
     </form>

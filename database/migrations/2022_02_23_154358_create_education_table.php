@@ -15,12 +15,15 @@ class CreateEducationTable extends Migration
     {
         Schema::create('education', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('ename')->nullable();
-            $table->string('faculty')->nullable();
-            $table->string('studyfild')->nullable();
-            $table->string('level')->nullable();
-            $table->string('status')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->string('ename');
+            $table->char('from',4);
+            $table->char('to',4);
+            $table->string('ecity');
+            $table->string('faculty');
+            $table->string('studyfild');
+            $table->string('level');
+            $table->string('status');
 
             $table->foreign('user_id')
                 ->references('id')

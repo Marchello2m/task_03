@@ -29,6 +29,9 @@ class EditCvController extends Controller
         $education = Education::find($request->id);
         $education->user_id =$basic->id;
         $education->ename =$request->input('ename');
+       $education->from =$request->input('from');
+        $education->to =$request->input('to');
+        $education->ecity =$request->input('ecity');
         $education->faculty =$request->input('faculty');
         $education->studyfild =$request->input('studyfild');
         $education->level =$request->input('level');
