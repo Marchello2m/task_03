@@ -14,7 +14,7 @@
              <th class="p-3">Phone</th>
              <th class="p-3">Email</th>
              <th class="p-3">School name</th>
-             <th class="p-3">Faculty</th>
+
          </tr>
          </thead>
 
@@ -26,14 +26,11 @@
          <td class="p-3">{{$item->surname}}</td>
          <td class="p-3 ">{{$item->phone}}</td>
          <td class="p-3">{{$item->email}}</td>
+         <td><a href="/edit/{{$item->id}}">Update</a></td>
 
-         @foreach($education as $item)
 
-             <td class="p-3">{{$item->ename}}</td>
-             <td class="p-3">{{$item->faculty}}</td>
-
-         @endforeach
      </tr>
+
          @endforeach
 
  </table>

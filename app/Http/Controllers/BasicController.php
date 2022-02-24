@@ -25,6 +25,7 @@ class BasicController extends Controller
         $basic->surname = $request->surname;
         $basic->phone = $request->phone;
         $basic->email = $request->email;
+        $basic->aboutyou = $request->aboutyou;
         $basic->created_at = Carbon::now();
         $basic->save();
 
@@ -64,8 +65,8 @@ class BasicController extends Controller
     public function show()
     {
         $data= DB::table('basic_data')->get();
-        $education= DB::table('education')->get();
-        return view('/home',compact('data','education'));
+
+        return view('/home',compact('data'));
 
     }
 }

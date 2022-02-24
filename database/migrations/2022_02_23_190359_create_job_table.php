@@ -16,10 +16,10 @@ class CreateJobTable extends Migration
         Schema::create('job', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('title');
-            $table->string('position');
-            $table->string('workload');
-            $table->string('los');
+            $table->string('title')->nullable();
+            $table->string('position')->nullable();
+            $table->string('workload')->nullable();
+            $table->string('los')->nullable();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('basic_data');

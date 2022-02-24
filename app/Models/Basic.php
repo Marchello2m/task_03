@@ -11,7 +11,17 @@ class Basic extends Authenticatable
 {
     use HasApiTokens, HasFactory;
 
+    public $fillable = [
+
+        'name'=>'',
+        'surname' =>'',
+        'phone'=> '',
+        'email' => '',
+
+    ];
+
     protected $table = 'basic_data';
+
 
     public function education()
     {
@@ -20,5 +30,9 @@ class Basic extends Authenticatable
     public function jobs()
     {
         return $this->hasMany(Job::class);
+    }
+    public function addresses()
+    {
+        return $this->hasMany(Addresses::class);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\EditCvController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,6 @@ Route::get('/addCV', function () {
 });
 Route::post('/addCV',[BasicController::class,'saveBasic']);
 Route::get('/',[BasicController::class,'show']);
+Route::get('edit/{id}',[EditCvController::class,'showEdit']);
+Route::post('edit/{id}',[EditCvController::class,'update']);
+Route::get('preview/{id}',[EditCvController::class,'preview']);

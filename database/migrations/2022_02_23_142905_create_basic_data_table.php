@@ -17,8 +17,9 @@ class CreateBasicDataTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('surname');
-            $table->integer('phone');
+            $table->integer('phone')->nullable();
             $table->string('email');
+            $table->text('aboutyou')->nullable();
 
             $table->timestamps();
         });
