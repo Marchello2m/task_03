@@ -4,10 +4,10 @@
  <div>This is main page with all cv.</div>
  <p>You can update the. Preview them and delete them</p>
  <form action="home" method="GET">
-
-     <table class="table text-gray-400 border-separate space-y-6 text-sm">
-         <thead class="bg-blue-500 ">
-         <tr>
+<div class="container" style="overflow-x:auto;">
+     <table class=" table text-gray-400 border-separate text-sm">
+         <thead class=" bg-blue-500 ">
+         <tr >
              <th class="p-3">id</th>
              <th class="p-3 text-left">Name</th>
              <th class="p-3 text-left">Surname</th>
@@ -35,6 +35,7 @@
          @endforeach
 
  </table>
+</div>
      </form>
 @endsection
 

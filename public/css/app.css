@@ -8,6 +8,7 @@ body, html{
     display: flex;
     flex-wrap: wrap;
     height: 200px;
+    width: 100%;
 }
 
 .profile_pic{
@@ -42,4 +43,22 @@ body, html{
 }
 .image{
     border-radius: 25px;
+
+}
+.pop{
+    width: 100%;
+    border-radius: 5px;
+    text-decoration: none;
+    border-style: solid;
+    color: #1a202c;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
 }

@@ -30,7 +30,7 @@
           </div>
            <div>
                <label for="aboutyou" class="form-label">About you</label>
-               <textarea  name="aboutyou" rows="4" cols="50"> </textarea>
+               <textarea  name="aboutyou" > </textarea>
 
            </div>
            <div>

@@ -2,7 +2,7 @@
 
 @section('content')
     <div>Edit page</div>
-    <button onclick="history.back()">Go Back</button>
+
     <form action="" method="POST" class="text-center">
         @csrf
 
@@ -19,12 +19,15 @@
             email
             <input type="text" name="email" value=" {{$data->email}}" required> <br> <br>
             about you
-            <textarea  name="aboutyou" rows="4" cols="50"> {{$data->aboutyou}}</textarea>
-            <h1>Educational institutions</h1>
+            <textarea  name="aboutyou" > {{$data->aboutyou}}</textarea> <br> <br>
+
+            <a class="pop" ONCLICK="Educational()">Educational institutions</a> <br> <br>
+            <div ID="institutions" STYLE="display:none">
+              <h1>Educational institutions</h1>
             Educational institutions Title
             <input type="text" name="ename" value=" {{$education->ename}}" > <br> <br>
             Year from
-            <input type="text" name="from" value=" {{$education->from}}" > <br> <br>
+            <input class=" text" type="text" name="from" value=" {{$education->from}}" > <br> <br>
 
             Year TO
             <input type="text" name="to" value=" {{$education->to}}" > <br> <br>
@@ -38,7 +41,9 @@
             <input type="text" name="level" value=" {{$education->level}}" > <br> <br>
             Status
             <input type="text" name="status" value=" {{$education->status}}" > <br> <br>
-
+            </div>
+            <a class="pop" ONCLICK="Job()">Job Exp</a> <br> <br>
+            <div ID="job" STYLE="display:none">
             <h1>Job Exp</h1>
             Title
             <input type="text" name="title" value=" {{$job->title}}" > <br> <br>
@@ -49,7 +54,9 @@
 
            Length of Service
             <input type="text" name="los" value=" {{$job->los}}" > <br> <br>
-
+            </div>
+            <a class="pop" ONCLICK="Addresses()">Addresses</a> <br> <br>
+            <div ID="addresses" STYLE="display:none">
             <h1>Addresses</h1>
             Country
             <input type="text" name="country" value=" {{$addresses->country}}" > <br> <br>
@@ -61,13 +68,40 @@
             <input type="text" name="street" value=" {{$addresses->street}}" > <br> <br>
             Number
             <input type="text" name="number" value=" {{$addresses->number}}" > <br> <br>
+            </div>
             <button type="submit">Update</button>
            <a href="/preview/{{$data->id}}">Preview</a>
             <button onclick="history.back()">Go Back</button>
         </div>
 
     </form>
+
 @endsection
 
-
+<script>
+    function Educational() {
+        let x = document.getElementById('institutions');
+        if (x.style.display == 'none') {
+            x.style.display = 'block';
+        } else {
+            x.style.display = 'none';
+        }
+    }
+    function Job() {
+        let x = document.getElementById('job');
+        if (x.style.display == 'none') {
+            x.style.display = 'block';
+        } else {
+            x.style.display = 'none';
+        }
+    }
+    function Addresses() {
+        let x = document.getElementById('addresses');
+        if (x.style.display == 'none') {
+            x.style.display = 'block';
+        } else {
+            x.style.display = 'none';
+        }
+    }
+</script>
 
