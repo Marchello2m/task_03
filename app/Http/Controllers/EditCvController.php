@@ -25,7 +25,11 @@ class EditCvController extends Controller
         $basic->updated_at = Carbon::now();
         $basic->save();
 
-
+        if (!isset($education)) {
+            $education = new Education();
+            $education->user_id =$basic->id;
+            $education->save();
+        }
         $education = Education::find($request->id);
         $education->user_id =$basic->id;
         $education->ename =$request->input('ename');
@@ -39,6 +43,11 @@ class EditCvController extends Controller
         $education->created_at = Carbon::now();
         $education->save();
 
+        if (!isset($job)) {
+            $job = new Job();
+            $job->user_id =$basic->id;
+            $job->save();
+        }
         $job=Job::find($request->id);;
         $job->user_id =$basic->id;
         $job->title=$request->input('title');
@@ -47,6 +56,11 @@ class EditCvController extends Controller
         $job->los=$request->input('los');
         $job->save();
 
+        if (!isset($addresses)) {
+            $addresses = new Addresses();
+            $addresses->user_id =$basic->id;
+            $addresses->save();
+        }
         $addresses=Addresses::find($request->id);
         $addresses->user_id =$basic->id;
         $addresses->country=$request->input('country');
@@ -56,7 +70,7 @@ class EditCvController extends Controller
         $addresses->number=$request->input('number');
         $addresses->save();
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Update success!');
 
     }
 
@@ -81,11 +95,9 @@ class EditCvController extends Controller
     public function delete($id)
     {
         $data = Basic::find($id);
-        $data->education()->delete();
-        $data->job()->delete();
-        $data->addresses()->delete();
+
         $data->delete();
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Success Deleted!');
     }
 }
