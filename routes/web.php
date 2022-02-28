@@ -26,3 +26,4 @@ Route::get('/',[BasicController::class,'show']);
 Route::get('edit/{id}',[EditCvController::class,'showEdit']);
 Route::post('edit/{id}',[EditCvController::class,'update']);
 Route::get('preview/{id}',[EditCvController::class,'preview']);
+Route::get('delete/{id}',[EditCvController::class,'delete']);

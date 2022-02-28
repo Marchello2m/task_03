@@ -28,6 +28,7 @@
          <td class="p-3">{{$item->email}}</td>
          <td><a href="/edit/{{$item->id}}">Update</a></td>
          <td> <a href="/preview/{{$item->id}}">Preview</a></td>
+         <td><a href="/delete/{{$item->id}}">Delete</a></td>
 
 
      </tr>

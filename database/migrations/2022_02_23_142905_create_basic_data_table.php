@@ -15,6 +15,7 @@ class CreateBasicDataTable extends Migration
     {
         Schema::create('basic_data', function (Blueprint $table) {
             $table->id();
+
             $table->string('name')->nullable();
             $table->string('surname')->nullable();
             $table->integer('phone')->nullable();

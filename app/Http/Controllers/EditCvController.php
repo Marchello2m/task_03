@@ -78,4 +78,5 @@ class EditCvController extends Controller
         return view('preview', compact('data','education','job','addresses'));
 
     }
+
 }
