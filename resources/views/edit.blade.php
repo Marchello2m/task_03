@@ -25,49 +25,49 @@
             <div ID="institutions" STYLE="display:none">
               <h1>Educational institutions</h1>
             Educational institutions Title
-            <input type="text" name="ename" value=" {{!empty($education->ename)}}" > <br> <br>
+            <input type="text" name="ename" value=" {{$education->ename}}" > <br> <br>
             Year from
-            <input class=" text" type="text" name="from" value=" {{!empty($education->from)}}" > <br> <br>
+            <input class=" text" type="text" name="from" value=" {{$education->from}}" > <br> <br>
 
             Year TO
-            <input type="text" name="to" value=" {{!empty($education->to)}}" > <br> <br>
+            <input type="text" name="to" value=" {{$education->to}}" > <br> <br>
            City
-            <input type="text" name="ecity" value=" {{!empty($education->ecity)}}" > <br> <br>
+            <input type="text" name="ecity" value=" {{$education->ecity}}" > <br> <br>
             Faculty
-            <input type="text" name="faculty" value=" {{!empty($education->faculty)}}" > <br> <br>
+            <input type="text" name="faculty" value=" {{$education->faculty}}" > <br> <br>
             Study Field
-            <input type="text" name="studyfild" value=" {{!empty($education->studyfild)}}" > <br> <br>
+            <input type="text" name="studyfild" value=" {{$education->studyfild}}" > <br> <br>
             Level
-            <input type="text" name="level" value=" {{!empty($education->level)}}" > <br> <br>
+            <input type="text" name="level" value=" {{$education->level}}" > <br> <br>
             Status
-            <input type="text" name="status" value=" {{!empty($education->status)}}" > <br> <br>
+            <input type="text" name="status" value=" {{$education->status}}" > <br> <br>
             </div>
             <a class="pop" ONCLICK="Job()">Job Exp</a> <br> <br>
             <div ID="job" STYLE="display:none">
             <h1>Job Exp</h1>
             Title
-            <input type="text" name="title" value=" {{!empty($job->title)}}" > <br> <br>
+            <input type="text" name="title" value=" {{$job->title}}" > <br> <br>
            Position
-            <input type="text" name="position" value=" {{!empty($job->position)}}" > <br> <br>
+            <input type="text" name="position" value=" {{$job->position}}" > <br> <br>
            WorkLoad
-            <input type="text" name="workload" value=" {{!empty($job->workload)}}" > <br> <br>
+            <input type="text" name="workload" value=" {{$job->workload}}" > <br> <br>
 
            Length of Service
-            <input type="text" name="los" value=" {{!empty($job->los)}}" > <br> <br>
+            <input type="text" name="los" value=" {{$job->los}}" > <br> <br>
             </div>
             <a class="pop" ONCLICK="Addresses()">Addresses</a> <br> <br>
             <div ID="addresses" STYLE="display:none">
             <h1>Addresses</h1>
             Country
-            <input type="text" name="country" value=" {{!empty($addresses->country)}}" > <br> <br>
+            <input type="text" name="country" value=" {{$addresses->country}}" > <br> <br>
             Index
-            <input type="text" name="index" value=" {{!empty($addresses->index)}}" > <br> <br>
+            <input type="text" name="index" value=" {{$addresses->index}}" > <br> <br>
             City
-            <input type="text" name="city" value=" {{!empty($addresses->city)}}" > <br> <br>
+            <input type="text" name="city" value=" {{$addresses->city}}" > <br> <br>
             Street
-            <input type="text" name="street" value=" {{!empty($addresses->street)}}" > <br> <br>
+            <input type="text" name="street" value=" {{$addresses->street}}" > <br> <br>
             Number
-            <input type="text" name="number" value=" {{!empty($addresses->number)}}" > <br> <br>
+            <input type="text" name="number" value=" {{$addresses->number}}" > <br> <br>
             </div>
             <button type="submit">Update</button>
            <a href="/preview/{{$data->id}}">Preview</a>

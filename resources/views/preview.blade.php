@@ -13,10 +13,10 @@
 
         <div class="info">
             <h1>{{$data->name}} {{$data->surname}}</h1>
-            <h3>{{!empty($job->position)}}</h3>
+            <h3>{{$job->position}}</h3>
 
-            <p class="addresses">{{!empty($addresses->number)}} {{!empty($addresses->street)}}, {{!empty($addresses->city)}},
-                {{!empty($addresses->index)}},{{!empty($addresses->country)}}</p>
+            <p class="addresses">{{$addresses->number}} {{$addresses->street}}, {{$addresses->city}},
+                {{$addresses->index}},{{$addresses->country}}</p>
             <p>{{$data->phone}} {{$data->email}}</p>
         </div>
     </div>
@@ -29,15 +29,15 @@
             </div>
             <div>
                 <h3>Employment History</h3>
-                <h6>{{!empty($job->position)}}, {{!empty($job->title)}}, {{!empty($addresses->city)}}</h6>
-                <p>{{!empty($job->workload)}}</p>
-                <p>Worked for :{{!empty($job->los)}}years</p>
+                <h6>{{$job->position}}, {{$job->title}}, {{$addresses->city}}</h6>
+                <p>{{$job->workload}}</p>
+                <p>Worked for :{{$job->los}}years</p>
             </div>
             <div>
 
                 <h2>Education</h2>
-                <h6>{{!empty($education->faculty)}}, {{!empty($education->ename)}}, {{!empty($education->ecity)}}</h6>
-                <p>FROM {{!empty($education->from)}} to {{!empty($education->to)}}</p>
+                <h6>{{($education->faculty}}, {{$education->ename}}, {{$education->ecity}}</h6>
+                <p>FROM {{($education->from}} to {{$education->to}}</p>
 
             </div>
         </div>

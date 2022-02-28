@@ -22,7 +22,8 @@ class CreateJobTable extends Migration
             $table->string('los')->nullable();
             $table->foreign('user_id')
                 ->references('id')
-                ->on('basic_data');
+                ->on('basic_data')
+                ->onDelete('cascade');
             $table->timestamps();
 
         });

@@ -78,5 +78,14 @@ class EditCvController extends Controller
         return view('preview', compact('data','education','job','addresses'));
 
     }
+    public function delete($id)
+    {
+        $data = Basic::find($id);
+        $data->education()->delete();
+        $data->job()->delete();
+        $data->addresses()->delete();
+        $data->delete();
 
+        return redirect('/');
+    }
 }

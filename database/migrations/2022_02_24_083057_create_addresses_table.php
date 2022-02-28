@@ -23,7 +23,8 @@ class CreateAddressesTable extends Migration
             $table->bigInteger('number')->nullable();
             $table->foreign('user_id')
                 ->references('id')
-                ->on('basic_data');
+                ->on('basic_data')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
