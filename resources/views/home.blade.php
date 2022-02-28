@@ -4,7 +4,7 @@
  <div>This is main page with all cv.</div>
  <p>You can update the. Preview them and delete them</p>
  <form action="home" method="GET">
-<div class="container" style="overflow-x:auto;">
+<div class="container2" style="overflow-x:auto;">
      <table class=" table text-gray-400 border-separate text-sm">
          <thead class=" bg-blue-500 ">
          <tr >
